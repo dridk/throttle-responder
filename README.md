@@ -12,7 +12,7 @@ docker run -p 5000:5000 throttle-responder
 curl --location --request POST 'http://localhost:5000/throttle' \
 --header 'Content-Type: application/json' \
 --data-raw '{
-    "ms": 1000,
+    "throttle": 1000,
     "sha1": "sample_sha1",
     "integer": 10
 }'
