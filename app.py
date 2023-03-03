@@ -11,6 +11,7 @@ def throttle():
     data = request.get_json()
     throttle = data.get('throttle')
     id = data.get('id')
+    app.logger.info(f'Received request: {data}')
     time.sleep(throttle/1000.0)
     response_data = {'id': id, 'throttle': throttle}
     return response_data
