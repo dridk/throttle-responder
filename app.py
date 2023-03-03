@@ -10,10 +10,10 @@ logging.basicConfig(level=logging.INFO)
 def throttle():
     data = request.get_json()
     ms = data.get('throttle')
-    sha1 = hashlib.sha1(str(data).encode('utf-8')).hexdigest()
+    id = hashlib.sha1(str(data).encode('utf-8')).hexdigest()
     app.logger.info(f'Received request: {data}')
     time.sleep(ms/1000.0)
-    response_data = {'sha1': sha1, 'throttle_time': ms}
+    response_data = {'id': id, 'throttle_time': ms}
     return response_data
 
 if __name__ == '__main__':
