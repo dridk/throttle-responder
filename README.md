@@ -3,15 +3,20 @@ This mini web-server should receive requests containing a delay value (int) and 
 It returns a response delayed accordingly, containing the id.
 
 ## Build the container
+
+```bash
 docker build -t throttle-responder .
-
+```
 ## Start the container
+```bash
 docker run -p 5000:5000 throttle-responder
-
+```
 ## Example usage
+```bash
 curl --location --request POST 'http://localhost:5000/throttle' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "throttle": 1000,
     "id": "sample_id",
 }'
+```
